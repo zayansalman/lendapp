@@ -10,7 +10,7 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.AWSStartupHandler;
 import com.amazonaws.mobile.client.AWSStartupResult;
 
-public class LoginActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,21 @@ public class LoginActivity extends AppCompatActivity {
 
         Button signupBtn = findViewById(R.id.signupBtn);
 
+
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, IDActivity.class);
+                Intent intent = new Intent(MainActivity.this, IDActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //setContentView(R.layout.user_area);
+        Button loginBtn = findViewById(R.id.loginBtn);
+        loginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, UserActivity.class);
                 startActivity(intent);
             }
         });
