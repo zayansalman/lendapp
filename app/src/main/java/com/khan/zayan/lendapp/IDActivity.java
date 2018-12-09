@@ -2,6 +2,7 @@ package com.khan.zayan.lendapp;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -16,6 +17,9 @@ import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.view.CameraEventsListener;
 import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class IDActivity extends AppCompatActivity {
@@ -55,9 +59,19 @@ public class IDActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        new Timer().schedule(new TimerTask(){
+            public void run() {
+                IDActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(IDActivity.this, EmailActivity.class));
+                    }
+                });
+            }
+        }, 2000);
         super.onStart();
         // you need to pass all activity's lifecycle methods to RecognizerRunnerView
         mRecognizerRunnerView.start();
+
     }
 
     @Override
