@@ -22,7 +22,7 @@ public class BankActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 2000);
+        }, 4000);
         super.onStart();
     }
 }

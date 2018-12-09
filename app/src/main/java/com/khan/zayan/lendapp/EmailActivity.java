@@ -22,7 +22,7 @@ public class EmailActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 2000);
+        }, 4000);
         super.onStart();
     }
 }
