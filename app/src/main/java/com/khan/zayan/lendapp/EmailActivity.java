@@ -3,6 +3,8 @@ package com.khan.zayan.lendapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,5 +26,17 @@ public class EmailActivity extends AppCompatActivity {
             }
         }, 4000);
         super.onStart();
+        Button bankButton = findViewById(R.id.bankButton);
+
+
+        bankButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EmailActivity.this, BankActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 }
