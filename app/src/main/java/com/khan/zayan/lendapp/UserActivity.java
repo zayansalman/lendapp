@@ -20,7 +20,7 @@ import java.util.Locale;
 public class UserActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_area);
 
@@ -54,13 +54,14 @@ public class UserActivity extends AppCompatActivity {
                         "An auto-chargeback will be attempted on final payment date.");
                 // Write a message to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference myRef = database.getReference("Name");
+                final DatabaseReference myRef = database.getReference("Name845");
 
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // Do nothing but close the dialog
                         myRef.setValue(np.getValue()); //value here
+                        setContentView(R.layout.loaned_area);
                         //dialog.dismiss();
                     }
                 });
