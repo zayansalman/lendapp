@@ -18,7 +18,7 @@ public class BankActivity extends AppCompatActivity {
             public void run() {
                 BankActivity.this.runOnUiThread(new Runnable() {
                     public void run() {
-                        startActivity(new Intent(BankActivity.this, LoanedActivity.class));
+                        startActivity(new Intent(BankActivity.this, UserActivity.class));
                     }
                 });
             }
