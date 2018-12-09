@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -45,15 +48,20 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder( UserActivity.this);
 
-                builder.setTitle("Confirm");
-                builder.setMessage("Are you sure?");
+                builder.setTitle("Are you sure?");
+                builder.setMessage("When paid back within 7 days of loan, no interested is incurred." +
+                        "7.5% applies to payments between 30 days." +
+                        "An auto-chargeback will be attempted on final payment date.");
+                // Write a message to the database
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                final DatabaseReference myRef = database.getReference("Name");
 
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // Do nothing but close the dialog
-
-                        dialog.dismiss();
+                        myRef.setValue(np.getValue()); //value here
+                        //dialog.dismiss();
                     }
                 });
 

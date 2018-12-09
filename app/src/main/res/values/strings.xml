@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">lendapp</string>
+    <string name="add_value_to_fire">Add Value to Fire</string>
+    <string name="cancelled" translatable="false">CANCELLED</string>
 </resources>
