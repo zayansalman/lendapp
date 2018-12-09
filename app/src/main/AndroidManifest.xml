@@ -28,7 +28,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".EmailActivity" />
-        <activity android:name=".BankActivity"></activity>
+        <activity android:name=".BankActivity" />
     </application>
 
 </manifest>
